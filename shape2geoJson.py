@@ -8,7 +8,8 @@ from json import dumps
 def shape2json(fname, outfile="geo_put.json"):
     reader = shapefile.Reader(fname)
     fields = reader.fields[1:]
-    field_names = [field[0] for field in fields]
+    field_names = [field[0] for field in fields        
+    geom = sr.shape.__geo_interface__
 
     data = []
     for sr in reader.shapeRecords():
